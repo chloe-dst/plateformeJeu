@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+div#fond{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    background-color: rgb(51, 51, 51);
+    border: black solid 5px;
+    border-radius: 4%;
+    width: 850px; 
+    height: 650px; 
+}
+
+div#fond > h1 {
+    margin-top: 15px;
+    margin-left: 145px;
+    
+    color: white;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 100px;
+    text-shadow: none;
+}
+/* Le Cadre */
+div#counter {
+
+    position: relative;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+
+    border-radius: 30px;
+    height: 300px;
+    width: 250px;
+    background-color: rgb(169, 203, 215);
+
+    box-shadow: rgb(223, 219, 219) 5px 5px 0;
+
+}
+
+div#effacer {
+    position: absolute;
+    right: -33px;
+    top: 80px;
+
+    height: 85px;
+    width: 35px;
+}
+div#effacer1 {
+    position: absolute;
+    left: 0;
+
+    height: 85px;
+    width: 20px;
+    border-radius: 25px;
+    background-color: black;
+    box-shadow: rgb(223, 219, 219) 3px 3px 0;
+}
+div#effacer2 {
+    position: absolute;
+    right: 2px;
+    top: 20px;
+
+    height: 45px;
+    width: 13px;
+    border-radius:  0 25px 25px 0 ;
+    background-color: black;
+    box-shadow: rgb(223, 219, 219) 3px 3px 0;
+
+}
+div#lunetteChiffres{
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap;
+    left: 25px;
+    top: 75px;
+
+    width: 200px;
+    height: 80px;
+    background-color: rgb(214, 214, 214);
+}
+ /* Les divs des chiffres */
+
+ #chiffre1, #chiffre2, #chiffre3, #chiffre4 {
+
+    margin-top: 10px;
+
+     width: 45px;
+     height: 50px;
+     background-color: white;
+
+     padding-top: 10px;
+     text-align: center;
+     font-family: 'Abril Fatface', cursive;
+     font-size: 2.5em;
+     
+
+ }
+ div#chiffre1 {
+     margin-left: 10px;
+ }
+
+/* La div qui ajoute 1 */
+div#compteur {
+    position: absolute;
+    left: 75px;
+    width: 100px;
+    height: 100px;
+
+}
+div#fente {
+    position: absolute;
+    left: 0;
+    top: 55px;
+
+
+    width: 100px;
+    height: 8px;
+    background-color: rgb(65, 65, 65);
+}
+div#compteur1 {
+    z-index: 3;
+    position: absolute;
+    left: 30px;
+    top: 19px;
+
+    height: 40px;
+    width: 40px;
+    background-color: white;
+}
+div#compteur2 {
+    position: absolute;
+    top: -35px;
+    left: 15px;
+
+    border-radius: 100%;
+    height: 70px;
+    width: 70px;
+    background-color: white;
+}

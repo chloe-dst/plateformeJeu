@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+    <title>Memory</title>
+    <meta charset="utf-8"/>
+    <link href="style.css" rel="stylesheet" media="all" type="text/css"> 
+    <style>
+        /* CSS SPECIFIQUE AU JEU*/
+        img {
+            cursor:pointer;
+            width: 200px;
+            height: auto;
+            position: relative; 
+            overflow: hidden;
+            margin: 0;
+            filter: grayscale(.6);
+        }
+
+        img:hover{
+            filter: grayscale(0);
+        }
+
+        h2{
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img id="logo" src="Time_to_play_img/logo_timetoplay_blanc.png" alt="logo">
+        </a>
+
+        <ul id="navigation">
+            <li><a href="#" title="Jeux">JEUX</a>
+                <ul class="sous_parties">
+                    <li><a href="memory.html">Memory</a></li>
+                    <li><a href="cesar.html">Code de César</a></li>
+                    <li><a href="pixel_drawer.html">Pixel Draxer</a></li>
+                    <li><a href="simon.html">Simon Says</a></li>
+                    <li><a href="counter.html">Taily Counter</a></li>
+                    <li><a href="equipe.html">Le juste prix</a></li>
+                    <li><a href="hop.html">Hop Hop!</a></li>
+                </ul>
+            </li>
+            <li><a href="equipe.html" title="Equipe">EQUIPE</a></li>
+        </ul>
+    </header>
+    
+    <main>
+        <section id="bandeau">
+            <h1>Memory</h1>
+            <article id="description">
+                <h3>Règles du jeu :</h3>
+                <p>Le but du jeu est de trouver les paires, c'est à dire les cartes avec la même image. <br/> 
+                Cliquez sur deux cartes pour les retourner. Si ce sont les mêmes les deux cartes s’enlèvent, sinon il faut recommencer.
+                </p>
+            </article>
+        </section>
+        <section id="jeu">
+            <h2 id="win"></h2>
+            <h2 id="points"> MON SCORE : 0</h2>
+            <table id="plateau">
+                <tr> 
+                    <td class="cards"></td>
+                    <td class="cards"></td>
+                    <td class="cards"></td>
+                    <td class="cards"></td>
+                </tr>
+                <tr>
+                    <td class="cards"></td>
+                    <td class="cards"></td>
+                    <td class="cards"></td>
+                    <td class="cards"></td>
+                </tr>
+                <tr>
+                    <td class="cards"></td>
+                    <td class="cards"></td>
+                    <td class="cards"></td>
+                    <td class="cards"></td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="recommendations">
+            <article>
+                <h3>Vous aimerez aussi...</h3>
+            </article>
+            <article id="jeux_reco">
+                <div class="reco" id="reco1">
+                    <img src="Images/simon.png">
+                    <a href="simon.html"> <h4>Simon Says</h4> </a>
+                    <p>Suivez l'ordre des couleurs et à votre tour !</p>
+                </div> 
+                <div class="reco" id="reco2">
+                    <img src="Images/pixel_drawer.png">
+                    <a href="pixel.html"> <h4>Pixel Drawer</h4> </a>
+                    <p>Amusez-vous en dessinant ce que vous voulez ! </p>
+                </div>
+                <div class="reco" id="reco3">
+                    <img id="cesar" src="Images/cesar.png">
+                    <a href="cesar.html"> <h4>Code de César</h4> </a>
+                    <p>Décodez des messages comme les romains !</p>
+                </div>
+            </article>
+        </section>
+
+    <script>
+        /* MELANGER LES CARTES ALEATOIREMENT */ 
+        ordre_images = ['<img id="fd1" src="images/fond_cartefd1.png" onclick="switch_img(\'fd1\')" alt="fond de carte">', '<img id="fd2" src="images/fond_cartefd2.png" onclick="switch_img(\'fd2\')" alt="fond de carte">', '<img id="fd5" src="images/fond_cartefd5.png" onclick="switch_img(\'fd5\')" alt="fond de carte">', '<img id="fd3" src="images/fond_cartefd3.png" onclick="switch_img(\'fd3\')" alt="fond de carte">', '<img id="fd4" src="images/fond_cartefd4.png" onclick="switch_img(\'fd4\')" alt="fond de carte">', '<img id="fd6" src="images/fond_cartefd6.png" onclick="switch_img(\'fd6\')" alt="fond de carte">', '<img id="fd7" src="images/fond_cartefd7.png" onclick="switch_img(\'fd7\')" alt="fond de carte">', '<img id="fd8" src="images/fond_cartefd8.png" onclick="switch_img(\'fd8\')" alt="fond de carte">','<img id="fd9" src="images/fond_cartefd9.png" onclick="switch_img(\'fd9\')" alt="fond de carte">','<img id="fd10" src="images/fond_cartefd10.png" onclick="switch_img(\'fd10\')" alt="fond de carte">','<img id="fd11" src="images/fond_cartefd11.png" onclick="switch_img(\'fd11\')" alt="fond de carte">','<img id="fd12" src="images/fond_cartefd12.png" onclick="switch_img(\'fd12\')" alt="fond de carte">'];
+        shuffle(ordre_images);
+        element = document.querySelectorAll(".cards");
+        for ( let index = 0 ; index < ordre_images.length ; index++ ) { 
+            element[index].innerHTML = ordre_images[index];
+        }
+
+        /* Fonction prise sur https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
+        function shuffle(array) {
+            var currentIndex = array.length, temporaryValue, randomIndex;
+            while (0 !== currentIndex) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+             }
+            return array;
+        }
+
+       /* POUR RETOURNER L'IMAGE + CALCULER LE SCORE */
+       let score = 0;
+       let carte = "";
+
+       function switch_img(id_img)
+       {
+            let image_clic=document.querySelector("#"+id_img);
+            if (image_clic.src.match("fond_cartefd11") || image_clic.src.match("fond_cartefd12") )
+            {
+                image_clic.src="images/carte6.png";
+                console.log(id_img)
+            }
+            else if (image_clic.src.match("fond_cartefd3") || image_clic.src.match("fond_cartefd4") )
+            {
+                image_clic.src="images/carte2.png";
+                console.log(id_img)
+            }
+            else if (image_clic.src.match("fond_cartefd5") || image_clic.src.match("fond_cartefd6") )
+            {
+                image_clic.src="images/carte3.png";
+                console.log(id_img)
+            }
+            else if (image_clic.src.match("fond_cartefd7") || image_clic.src.match("fond_cartefd8") )
+            {
+                image_clic.src="images/carte4.png";
+                console.log(id_img)
+            }
+            else if (image_clic.src.match("fond_cartefd9") || image_clic.src.match("fond_cartefd10") )
+            {
+                image_clic.src="images/carte5.png";
+                console.log(id_img)
+            }
+            else if (image_clic.src.match("fond_cartefd1") || image_clic.src.match("fond_cartefd2") )
+            {
+                image_clic.src="images/carte1.png";
+                console.log(id_img)
+            }
+            else
+            {
+                image_clic.src="images/fond_carte"+id_img+".png";
+            }
+            score += 0.5;
+            if (Number.isInteger(score)) {
+                document.querySelector("#points").innerHTML = "MON SCORE : "+score;
+            }
+            card_chosen = image_clic.id;
+            choix(id_img,card_chosen);
+        }
+
+        /* CHOIX D'UNE PAIRE */
+        let un = "";
+        let deux ="";
+        let card1 = "";
+        let card2 = "";
+        let tour = 0;
+        function choix(id_img,card_chosen){
+            tour += 1;
+            if (tour == 2){
+                tour = 0;
+                card2 = document.getElementById(id_img).src;
+                deux = card_chosen;
+                result(card1,card2,un,deux);
+            } else {
+                card1 = document.getElementById(id_img).src;
+                un = card_chosen;
+            }
+        }
+
+        /* VERIFICATION PAIRE OU NON ?*/
+        let reussite = 0; 
+        function result(card1,card2,un,deux){
+            if (card1 == card2){
+                reussite += 1;
+                console.log("reussite = "+reussite);
+                setTimeout("document.querySelector('#'+un).remove()", 500);
+                setTimeout("document.querySelector('#'+deux).remove()", 500);
+                if (reussite == 6){
+                    setTimeout('document.querySelector("#win").innerHTML = "BRAVO, C\'EST GAGNÉ ! <br><br>"', 500);
+                }
+            }
+            else {
+                setTimeout("document.querySelector('#'+un).src = 'images/fond_carte'+un+'.png';", 500);
+                setTimeout("document.querySelector('#'+deux).src = 'images/fond_carte'+deux+'.png';", 500);
+            }
+        }
+        
+    </script>
+    </main>
+    <footer>
+        <span>Développé dans le cadre du cours Front End à HETIC - Copyright @2021</span>
+    </footer>
+
+<body>
+
+</body>
+</html>

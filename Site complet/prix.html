@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+<head>
+    <title>Juste Prix</title>
+    <meta charset="utf-8"/>
+    <link href="style_prix.css" rel="stylesheet" media="all" type="text/css"> 
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img id="logo" src="Time_to_play_img/logo_timetoplay_blanc.png" alt="logo">
+        </a>
+
+        <ul id="navigation">
+            <li><a href="#" title="Jeux">JEUX</a>
+                <ul class="sous_parties">
+                    <li><a href="memory.html">Memory</a></li>
+                    <li><a href="cesar.html">Code de César</a></li>
+                    <li><a href="pixel_drawer.html">Pixel Draxer</a></li>
+                    <li><a href="simon.html">Simon Says</a></li>
+                    <li><a href="counter.html">Taily Counter</a></li>
+                    <li><a href="equipe.html">Le juste prix</a></li>
+                    <li><a href="hop.html">Hop Hop!</a></li>
+                </ul>
+            </li>
+            <li><a href="equipe.html" title="Equipe">EQUIPE</a></li>
+        </ul>
+    </header>
+    
+    <main>
+        <section id="bandeau">
+            <h1>Juste Prix</h1>
+            <article id="description">
+                <h3>Règles du jeu :</h3>
+                <p>Le but du jeu est de deviner un nombre le plus rapidement possible. <br>
+                La partie se déroule en deux manches <br>
+                1) A vous de deviner le nombre auquel pense l'ordinateur
+                2) Pensez à un nombre, gardez le en tête et donnez des indications à l'ordinateur. Est-ce que le chiffre est plus grand ? Plus petit ? <br/><br/> 
+                Au bout des deux manches, il est temps de comparer votre score et celui de l'ordinateur.<br/> 
+                Celui avec le score le plus bas, car il a deviné le plus vite, gagne. <br/> 
+                Prêt à défier l'ordinateur ? 
+                </p>
+            </article>
+        </section>
+
+    <!--JEU JUSTE PRIX-->
+        <section id="jeu">
+            <div class="interface">
+      
+                <img id="icone_jeu" src="Images/juste_prix.png" alt="prix" id="prix">
+
+                <h1 id="t1">JUSTE PRIX</h1>
+                <p id="text6"></p>
+                <h3 id="texte_manche">JE PENSE A UN NOMBRE ENTRE 0 ET 100, ESSAYE DE LE DEVINER</h3>
+                <h3 id="annonce_ordi"></h3>
+                <br> <br>
+                <p id="text1">Quel est le nombre?</p>
+                <p id="text3"></p>
+                <p id="text4"></p>
+
+                <input type = "text" value = "" id = "guessField" class = "guessField"><br>
+                <input type="submit" value="Valider" name="Valider" onclick="play();"><br>
+                <p id="text5"></p>
+                <p id="text2">Score manche 1 : 0</p>
+            </div>
+        </section>
+
+         <section id="recommendations">
+            <article>
+                <h3>Vous aimerez aussi...</h3>
+            </article>
+            <article id="jeux_reco">
+                <div class="reco" id="reco1">
+                    <img src="Images/simon.png">
+                    <a href="simon.html"> <h4>Simon Says</h4> </a>
+                    <p>Suivez l'ordre des couleurs et à votre tour !</p>
+                </div>
+                </a>    
+                <div class="reco" id="reco2">
+                    <img src="Images/pixel_drawer.png">
+                    <a href="pixel.html"> <h4>Pixel Drawer</h4> </a>
+                    <p>Amusez-vous en dessinant ce que vous voulez ! </p>
+                </div>
+                <div class="reco" id="reco3">
+                    <img id="cesar" src="Images/cesar.png">
+                    <a href="cesar.html"> <h4>Code de César</h4> </a>
+                    <p>Décodez des messages comme les romains !</p>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <span>Développé dans le cadre du cours Front End à HETIC - Copyright @2021</span>
+    </footer>
+
+    <script>
+        // Les variables
+
+        var text1 = document.getElementById("text1");
+        var text2 = document.getElementById("text2");
+        var text3 = document.getElementById("text3");
+        var text4 = document.getElementById("text4");
+        var text5 = document.getElementById("text5");
+        var text6 = document.getElementById("text6");
+
+        // nombre aléatoire
+        var randomN = Math.floor(Math.random() * 101);
+        console.log(randomN);
+        var guess_joueur = 0;
+        var guess_ordi = 0;
+        var answer = [];
+        var manche = 1;
+        var random2 = getRandomInt(min, max);
+
+        // Manche 1 & 2
+        var min = 1;
+        var max = 101;
+        //fonction récupérée sur https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Math/random
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        function new_min(random2){
+            return min = random2;
+        }
+
+        function new_max(random2){
+            return max= random2;
+        }
+
+        function play(){
+            var guessField = document.getElementById("guessField").value;
+            document.getElementById("guessField").value = "";
+        // Manche 1
+            if (manche == 1){
+                answer.push(guessField);
+                guess_joueur+= 1;
+                text2.textContent = "Score manche 1 : " + guess_joueur;
+            
+                if(guessField == randomN){
+                    text6.textContent ="C'est gagné !";
+                    text3.text1 = "Le nombre était : " + randomN;
+                    change();
+ 
+                } else if (guessField < randomN){
+                 
+                    text1.textContent = "C'est plus !";
+            
+                } else {
+                    text1.textContent = "C'est moins !";
+                }
+        // Manche 2
+            } else {
+                text6.textContent ="";
+                text1.textContent = "";
+                if (guessField == "=") {
+                    text1.textContent ="J'ai trouvé ton chiffre ! ";
+                    var essai_ordi = "";
+                    winner();
+                } else if(guessField == "+") {
+                    text5.textContent = "Score manche 2 : " + guess_ordi;
+                    min = random2;
+                    random2 = getRandomInt(min, max);
+                    afficher()
+                } else if(guessField == "-") {
+                    text5.textContent = "Score manche 2 : " + guess_ordi;
+                    max = random2;
+                    random2 = getRandomInt(min, max);
+                    afficher()
+                } else{
+                    text1.textContent = "Mauvaise saisie. Merci de rééssayer";
+                }
+            }
+
+        }    
+        
+        // Affiche le texte de la manche 2
+        function afficher(){
+            var des = document.getElementById("description");
+            guess_ordi+= 1;
+            var essai_ordi = "<br> JE PENSE AU NOMBRE : " + random2 + "<br> Est-ce le bon nombre ?";
+            document.querySelector("#annonce_ordi").innerHTML = essai_ordi;
+            console.log(min);
+            console.log(max);
+        }
+
+        // Enclanche le changement de manche
+        function change(){
+            text1.textContent ="";
+            document.querySelector("#texte_manche").innerHTML = "<br> A MON TOUR DE DEVINER LE NOMBRE ENTRE 1 ET 100 <br/><br/> Ecris + : si ton chiffre est plus grand <br/> Ecris - : s'il est plus petit <br> Ecris = : si j'ai trouvé";
+            document.querySelector("#text5").innerHTML = "Score manche 2 : 0";
+            document.getElementById("guessField").value = "";
+            manche = 2;
+            random2 = getRandomInt(min, max);
+            afficher();
+        }
+
+        // Fin du jeu
+        var win = 0;
+        function winner() {
+            if (guess_joueur < guess_ordi) {
+                text4.textContent = guess_joueur+" vs. "+guess_ordi+"<br>Tu m'as battu, bravo !";
+
+            }else if(guess_joueur > guess_ordi) {
+                text4.textContent = guess_joueur+" vs. "+guess_ordi+"<br>Malheureusement, tu n'étais pas de taille face à moi...";
+
+            }else if(guess_joueur == guess_ordi) {
+                text4.textContent = guess_joueur+" vs. "+guess_ordi+"<br>Egalité, vivement la revanche !";
+
+            }
+        }
+
+    </script>
+<body>
+
+</body>
+</html>

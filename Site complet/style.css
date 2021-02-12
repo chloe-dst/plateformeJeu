@@ -1,0 +1,270 @@
+/* RESET DU CSS */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* IMPORTATION DE LA POLICE MONTSERRAT */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&family=Montserrat:wght@500&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#background{
+    width: 100%;
+    position: fixed;
+    top : 10px;
+}
+
+header {
+    top: 0;
+    padding: 25px 0;
+    position: fixed;
+    z-index: 100;
+
+    background-color:#101010;
+    height: 50px;
+    width: 100%;
+    opacity: 0.7;
+}
+header > a > img#logo {
+    margin-left:10%;
+
+    width: 200px;
+    height: auto;
+}
+
+/* ANIMATION DU LOGO */
+header > a > img#logo:hover {
+    animation: tourne 0.4s ease-in 0s 1;
+}
+@keyframes tourne {
+    0% {
+        transform : rotateX(0);
+    }
+    100%{
+        transform : rotateX(-180deg);
+    }
+}
+
+/* MENU DEROULANT */
+#navigation li {
+    display: inline;
+    float: right;
+    font-family: 'Montserrat Subrayada';
+    color: white;
+    padding: 10px;
+    position: relative;
+  }
+
+a {
+    color: white;
+    text-decoration: none;
+  }
+
+a :visited {
+    color: white;
+  }
+
+#navigation{
+    margin-left: 80%;
+    position: absolute;
+    top : 30px;
+    font-size: 1.2em;
+}
+
+ul li ul {
+	background: #101010;
+	visibility: hidden;
+    opacity: 0;
+    width: 200px;
+	position: absolute;
+    margin-top: 5px;
+    padding: 30px;
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+ul li ul li {
+	clear: both;
+    width: 200px;
+}
+
+#bandeau{
+    background-color: #272042;
+    height: auto;
+    width: 100%;
+    padding-top: 150px;
+    padding-bottom: 50px;
+    background-image: url('Images/background_galaxy.png');
+    background-position: 90%;
+    grid-column-start: span 10;
+    grid-row-start: 1;
+}
+
+h1{
+    color: white;
+    width: 50%;
+    font-size: 4.8em;
+    margin-left: 10%;
+    font-family: 'Montserrat Subrayada', sans-serif;
+    z-index: 1;
+    position: relative;
+    text-shadow: rgba(255, 255, 255, 0.267) 15px -10px;
+}
+
+h2{
+    text-align: center;
+    font-size: 2.4em;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    font-weight: 900;
+    padding: 0px 150px;
+}
+
+a{
+    text-decoration: none;
+}
+
+#description{
+    width: 50%;
+    background-color: #272042;
+    opacity: 0.8 ;
+    border-radius: 50px;
+    margin-left: 45%;
+    box-shadow: 4px 8px 6px 0px #3b3354;
+}
+
+#description > p{
+    color: white;
+    padding: 0px 50px 50px 50px;
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+#description > h3{
+    color: white;
+    padding: 50px 0px 15px 50px;
+    font-size: 1.4em;
+}
+
+#plateau{
+    padding: 0px 50px 50px 50px;
+    grid-row-start: 2;
+    grid-column-start: 3;
+    grid-column-end: 9;
+    width: auto;
+} 
+
+#jeu{
+    background-color: #A5A0D2;
+    border-radius: 60px;
+    grid-column-start: 3;
+    grid-column-end: 9;
+    justify-self: center;
+    margin: 50px;
+    padding: 50px 50px 0px 50px;
+}
+
+main{
+    display: grid;
+    grid-template-columns: repeat(10,10%);
+    grid-template-rows: 4fr;
+} 
+
+#recommendations{
+    background-color: #272042;
+    grid-row: 3/4;
+    grid-column: span 10;
+    padding: 50px;
+    padding-bottom: 100px;
+}
+
+#jeux_reco{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#recommendations h3{
+    color: white;
+    font-family: 'Montserrat Subrayada', sans-serif;
+    font-size: 1.6em;
+    margin-left: 10%;
+    grid-row-start: 3;
+    padding-bottom: 20px;
+}
+
+.reco{
+    background-color: #332E59;
+    border-radius: 30px;
+    padding: 50px 20px;
+    display: inline;
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+
+#recommendations p{
+    color: white;
+    margin-left: 120px;
+}
+
+#recommendations img{
+    width: 200px;
+    height: auto;
+    position: absolute;
+    top : 20px;
+    left: -60px;
+    overflow: hidden;
+}
+
+#recommendations h4{
+    color: white;
+    font-family: 'Montserrat Subrayada', sans-serif;
+    font-size: 1.4em;
+    width: auto;
+    height: auto;
+    margin-left: 120px;
+    padding-bottom: 10px;
+}
+
+footer{
+    height: 40px;
+    width: 100%;
+    background-color: #101010;
+    color: white;
+    font-size: 0.8em;
+    text-align: center;
+    padding-top: 25px;
+    font-family: 'Montserrat', sans-serif;
+}

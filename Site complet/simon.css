@@ -1,0 +1,428 @@
+
+/* IMPORTATION DES POLICES */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&family=Montserrat:wght@500&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+/* LA PAGE DE DÉBUT */
+div#start {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border:  rgba(255, 255, 255, 0.9) solid 5px;
+    border-radius: 4% ;
+    width: 850px; 
+    height: 650px; 
+}
+
+#jeu{
+    padding: 50px;
+}
+
+/* Nom du jeu au début du jeu */
+div#start > h2#startTittle {
+    
+    margin-top: 180px;
+    color: black;
+    font-size: 200px;
+    text-align: center;
+    vertical-align: center;
+}
+
+/* Apparence : du titre du jeu en :hover  */
+div#start > h2#startTittle > span.lettreS:hover {
+    color: #f5e000;
+}
+div#start > h2#startTittle > span.lettreI:hover {
+    color: #3a86ff;
+}
+div#start > h2#startTittle > span.lettreM:hover {
+    color: #ff006e;
+}
+div#start > h2#startTittle > span.lettreO:hover {
+    color: #ff6b35;
+}
+div#start > h2#startTittle > span.lettreN:hover {
+    color: #8338ec;
+}
+
+/* Texte de début de jeu */
+div#start > p {
+    color: black;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 25px;
+    text-align: center;
+}
+
+/* Animation : pour que le texte du dessous du nom du jeu clignotte */
+p.pclignote {
+    animation-duration: .8s;
+   animation-name: clignoter;
+   animation-iteration-count: infinite;
+   transition: none;
+}
+@keyframes clignoter {
+    0%   { opacity:1; }
+    40%   {opacity:0; }
+    100% { opacity:1; }
+  }
+
+/* PLATE FORME DU JEU */
+
+div#simonGame {
+    opacity: 1;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    border-radius: 5%;
+    width: 850px; /* Peut-être modifier, le contenue s'adapte */
+    height: 650px; /* Peut-être modifier, le contenue s'adapte */
+    background-color: black;
+
+/* LE GRID : surface du jeux */
+
+    display: grid;
+    grid-template-columns: 1fr repeat(4, 1fr) 1fr;
+    grid-template-rows: 20% 45% 35%;
+    gap: 0 18px; /* ICI CHANGER LE GAP ENTRE LES LIGNES !! */
+    justify-content: center;
+}
+
+ /* CASES DE COULEURS : propriétés et valeurs générals */
+div#color1, div#color2, div#color3, div#color4 {
+    margin-top: 30px;
+    grid-row: 2;
+    border-radius: 25px;
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+div#color1 {
+    grid-column: 2;
+    border: solid 5px #ff006e ;
+    background-color: #ef476f ;
+}
+div#color2 {
+    grid-column: 3;
+    border: solid 5px #3a86ff ;
+    background-color: #478eff ;
+}
+div#color3 {
+    grid-column: 4;
+    border: solid 5px #f5e000 ;
+    background-color: #ffea00 ;
+}
+div#color4 {
+    grid-column: 5;
+    border: solid 5px #8338ec ;
+    background-color: #7a21d4 ;
+}
+
+/* Les H2 */
+h2#smallTitle {
+    opacity: 0;
+}
+h2#smallTitle, h2#startTittle {
+
+    display: inline-block;
+    width: 100%;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    padding: 0;
+
+
+    font-family: 'Abril Fatface', cursive;
+    color: white;
+    font-size: 6.5rem;
+    text-align: center;
+    margin-top: 10px;
+    text-shadow: rgb(148, 138, 138) 3px 3px 3px;
+}
+
+/* Boutton de validation */
+button.valider {
+    display: block;
+    grid-row: 3;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    align-self: center;
+    justify-self: center;
+
+    font-family: 'Abril Fatface', cursive;
+    text-shadow: rgb(179, 176, 176) 3px 3px 3px;
+    font-size: 40px;
+    text-align: center;
+
+    border: 0;
+    border-radius: 10px;
+    background-color: white;
+    
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+
+    width: 500px;
+    height: 70px;
+
+}
+button.valider:hover {
+    background-color: #06d6a0;
+}
+button.debut {
+    display: none;
+    grid-row: 3;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    align-self: center;
+    justify-self: center;
+
+    font-family: 'Abril Fatface', cursive;
+    color: black;
+    text-shadow: rgb(219, 210, 210) 3px 3px 3px;
+    font-size: 40px;
+    text-align: center;
+
+    border: 0;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+
+    width: 500px;
+    height: 70px;
+}
+
+/* Effet sur le hover du bouton recommencer */
+button.debut:hover {
+    color: #06d6a0;
+}
+
+/* Eclaircissement des touches quand le joueur click */
+.lightv {
+background-color: rgb(174, 159, 255)!important;
+
+}
+.lightb {
+    background-color: rgb(192, 192, 238)!important;
+}
+.lightr {
+    background-color: rgb(255, 193, 222) !important;
+}
+.lightj{
+    background-color: rgb(252, 255, 208)!important;
+}
+
+/* Les messages envoyés si nous réussissons ou si nous perdons */
+p.dommage{
+    display: none;
+    grid-row: 3;
+    grid-column: 3 / span 2;
+    margin-top: 15px;
+    text-align: center;
+
+    font-size: 2.5em;
+    font-family: 'Abril Fatface', cursive;
+    color: #ffffff;
+    text-shadow: 0 0 0.2em rgb(255, 0, 0), 0 0 0.2em rgb(255, 34, 0)
+    
+}
+
+p.bravo {
+    display: none;
+    grid-row: 3;
+    grid-column: 3 / span 2;
+    margin-top: 15px;
+    text-align: center;
+
+    font-size: 2.5em;
+    font-family: 'Abril Fatface', cursive;
+    color: #ffffff;
+    text-shadow: 0 0 0.2em #06d6a0, 0 0 0.2em #0bffbe
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

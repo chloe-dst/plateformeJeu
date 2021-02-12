@@ -1,0 +1,408 @@
+<!doctype html>
+<html>
+<head>
+    <title>PixelDrawer</title>
+    <meta charset="utf-8"/>
+    <link href="pixelDrawer.css" rel="stylesheet" media="all" type="text/css"> 
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img id="logo" src="Time_to_play_img/logo_timetoplay_blanc.png" alt="logo">
+        </a>
+
+        <ul id="navigation">
+            <li><a href="#" title="Jeux">JEUX</a>
+                <ul class="sous_parties">
+                    <li><a href="memory.html">Memory</a></li>
+                    <li><a href="cesar.html">Code de César</a></li>
+                    <li><a href="pixel_drawer.html">Pixel Draxer</a></li>
+                    <li><a href="simon.html">Simon Says</a></li>
+                    <li><a href="counter.html">Taily Counter</a></li>
+                    <li><a href="equipe.html">Le juste prix</a></li>
+                    <li><a href="hop.html">Hop Hop!</a></li>
+                </ul>
+            </li>
+            <li><a href="equipe.html" title="Equipe">EQUIPE</a></li>
+        </ul>
+    </header>
+    
+    <main>
+        <section id="bandeau">
+            <h1>Pixel Drawer</h1>
+            <article id="description">
+                <h3>Règles du jeu :</h3>
+                <p>Choisissez une couleur et cliquez sur une des cases pour la colorier<br/> 
+                Vous pouvez retrouver une couleur déjà utilisée grâce à la pipette.<br>
+                Si vous faites une erreur, pas de panique! Utilisez la gomme pour effacer une case. Ou la poubelle si vous voulez tout recommencer.<br>
+                Liberez l'artiste en vous, à vous de jouer ! 
+                </p>
+            </article>
+        </section>
+
+        <section id="jeu">
+
+            <div id="screen-message">
+                <p id="message">Le Pixel Drawer n'est pas disponible pour tablette ou mobile.</p>
+            </div>
+
+            <div id="wrapper">
+                <div id="button" class="tooltip">
+                    <ul>
+                        <li class="active">
+                            <input type="color" id="colorPicker">
+                            <span class="tooltiptext">Choisissez la couleur</span>
+                        </li>
+                        <li>
+                            <button type="button" id="eyeDropper">
+                                <img src="Images/eye-dropper.png">
+                            </button>
+                            <span class="tooltiptext">Pipette</span>
+
+                        </li>
+                        <li>
+                            <button type="button" id="eraser">
+                                <img src="Images/eraser.png">
+                            </button>
+                            <span class="tooltiptext">Gomme</span>
+                        </li>
+                        <li>
+                            <button type="button" id="clear">
+                                <img src="Images/bin.png">
+                            </button>
+                            <span class="tooltiptext">Tout effacer</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Grille de dessin -->
+                <div id="table">
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations autres jeux du site -->
+        <section id="recommendations">
+            <article>
+                <h3>Vous aimerez aussi...</h3>
+            </article>
+            <article id="jeux_reco">
+                <div class="reco" id="reco1">
+                    <img src="Images/simon.png">
+                    <a href="simon.html"> <h4>Simon Says</h4> </a>
+                    <p>Suivez l'ordre des couleurs et à votre tour !</p>
+                </div>
+                <div class="reco" id="reco2">
+                    <img id="memory_img"src="Images/memory.png">
+                    <a href="memory.html"> <h4>Memory</h4> </a>
+                    <p>Trouvez les paires de cartes pour gagner !</p>
+                </div>
+                <div class="reco" id="reco3">
+                    <img id="cesar" src="Images/cesar.png">
+                    <a href="cesar.html"> <h4>Code de César</h4> </a>
+                    <p>Décodez des messages comme les romains !</p>
+                </div>
+            </article>
+        </section>
+    </main>
+    
+    <footer>
+        <span>Développé dans le cadre du cours Front End à HETIC - Copyright @2021</span>
+    </footer>
+
+    <script src="pixelDrawer.js"></script>
+
+</body>
+
+</html>

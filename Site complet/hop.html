@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+    <title>Hop Hop !</title>
+    <meta charset="utf-8"/>
+    <link href="style.css" rel="stylesheet" media="all" type="text/css"> 
+    <link rel="stylesheet" href="hop.css">
+
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img id="logo" src="Time_to_play_img/logo_timetoplay_blanc.png" alt="logo">
+        </a>
+
+        <ul id="navigation">
+            <li><a href="#" title="Jeux">JEUX</a>
+                <ul class="sous_parties">
+                    <li><a href="memory.html">Memory</a></li>
+                    <li><a href="cesar.html">Code de César</a></li>
+                    <li><a href="pixel_drawer.html">Pixel Draxer</a></li>
+                    <li><a href="simon.html">Simon Says</a></li>
+                    <li><a href="counter.html">Taily Counter</a></li>
+                    <li><a href="equipe.html">Le juste prix</a></li>
+                    <li><a href="hop.html">Hop Hop!</a></li>
+                </ul>
+            </li>
+            <li><a href="equipe.html" title="Equipe">EQUIPE</a></li>
+        </ul>
+    </header>
+    
+    <main>
+        <!-- BANDEAU DE PRESENTATION DU JEU -->
+        <section id="bandeau">
+            <h1>HOP HOP !</h1>
+            <article id="description">
+                <h3>Règles du jeu :</h3>
+                <p>Sautez, sautez, sautez et faîtes vous un chemin. <br/> 
+                Essayez d'éviter les obstacles en sautant par-dessus eux.<br/> 
+                Cliquez sur l'écran à temps afin de pouvoir éviter les obstacles qui arrivent ... <br/> 
+                HINT : Attention, vous n'êtes pas tout léger.)
+                </p>
+            </article>
+        </section>
+
+        <!-- JEU -->
+        <section id="jeu">
+            <div id="start">
+                <h2 id="startTittle">
+                    <span class="lettreH1">H</span><span class="lettreO1">O</span><span class="lettreP1">P</span> <span class="lettreH2">H</span><span class="lettreO2">O</span><span class="lettreP2">P</span> <span class="lettreExclamation">!</span>  
+                </h2>
+                <p class="pclignote">Cliquez pour commencer</p>
+            </div>
+
+            <div id="HOP">
+                <!-- LE DÉCOR DU JEU-->
+                <div id="fond">
+                    <button id="again">RECOMMENCEZ</button>
+                <!--LE SOLEIL-->
+                <div id="soleil"></div>
+                <div id="score"></div>
+                <!--LES ARBRES-->
+                <img id="arbre1" src="Images/arbre contour fin 1.png" alt="">
+                <img id="arbre2" src="Images/arbre contour fin 1.png" alt="">
+                <img id="arbre3" src="Images/arbre contour fin 1.png" alt="">
+                <!--LES OISEAUX-->
+                <img id="oiseau" src="Images/oiseaux 2.png" alt="">
+                <!--L'HERBE-->
+                <img id="herbe1" src="Images/herbes2.png" alt="">
+                <img id="herbe2" src="Images/herbes2.png" alt="">
+                </div>
+        
+                <!--MON PERSO-->
+                <div id="perso"></div>
+        
+                <!--MON PREMIER OBSTACLE-->
+                <div id="obstacle1"></div>
+        
+                <!--MON SECOND OBSTACLE-->
+                <div id="obstacle2"></div>
+            </div>
+        </section>
+
+        <!-- SECTION RECOMMENDATION DES AUTRES JEUX -->
+        <section id="recommendations">
+            <article>
+                <h3>Vous aimerez aussi...</h3>
+            </article>
+            <article id="jeux_reco">
+                <div class="reco" id="reco1">
+                    <img src="Images/simon.png">
+                    <a href="simon.html"> <h4>Simon Says</h4> </a>
+                    <p>Suivez l'ordre des couleurs et à votre tour !</p>
+                </div>
+                </a>    
+                <div class="reco" id="reco2">
+                    <img src="Images/pixel_drawer.png">
+                    <a href="pixel.html"> <h4>Pixel Drawer</h4> </a>
+                    <p>Amusez-vous en dessinant ce que vous voulez ! </p>
+                </div>
+                <div class="reco" id="reco3">
+                    <img id="cesar" src="Images/cesar.png">
+                    <a href="cesar.html"> <h4>Code de César</h4> </a>
+                    <p>Décodez des messages comme les romains !</p>
+                </div>
+            </article>
+        </section>
+
+    </main>
+
+    <footer>
+        <span>Développé dans le cadre du cours Front End à HETIC - Copyright @2021</span>
+    </footer>
+
+    <script src="hop.js"></script>
+</body>
+</html>

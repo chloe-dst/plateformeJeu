@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+<head>
+    <title>Code de César</title>
+    <meta charset="utf-8"/>
+    <link href="style.css" rel="stylesheet" media="all" type="text/css"> 
+    <style>
+    /* Ajout css spécifique au jeu */
+        #jeu > h2{
+            font-weight : bold;
+            text-align : center;
+            margin-bottom : 40px;
+            font-family: 'Montserrat Subrayada', sans-serif;
+            color: #272042;
+        }
+
+        label {
+            display : inline-block;
+            width: 100%;
+            text-align : center;
+            font-weight : bold;
+            font-size : 30px;
+            color :  #332e59;
+            margin-bottom : 30px; 
+        }
+
+        input[type="submit"]{
+            display : block;
+            width: 50%;
+            margin : auto;
+            height:50px ;
+            border : 2px solid #332e59; 
+            border-radius: 15px;
+            margin-top : 30px;
+            margin-bottom : 10px;
+            color : white;
+            font-weight : bold;
+            font-size : 20px;
+            text-transform: uppercase;
+            background-color: #332e59; 
+        }
+        
+        input[type="number"]{
+            display : block;
+            margin : auto;
+            width: 50%;
+            border : 2px solid #272042; 
+        }
+
+        textarea{
+            display : block;
+            margin : auto;
+            width: 60%;
+            border : 2px solid #272042; 
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img id="logo" src="Time_to_play_img/logo_timetoplay_blanc.png" alt="logo">
+        </a>
+
+        <ul id="navigation">
+            <li><a href="#" title="Jeux">JEUX</a>
+                <ul class="sous_parties">
+                    <li><a href="memory.html">Memory</a></li>
+                    <li><a href="cesar.html">Code de César</a></li>
+                    <li><a href="pixel_drawer.html">Pixel Draxer</a></li>
+                    <li><a href="simon.html">Simon Says</a></li>
+                    <li><a href="counter.html">Taily Counter</a></li>
+                    <li><a href="equipe.html">Le juste prix</a></li>
+                    <li><a href="hop.html">Hop Hop!</a></li>
+                </ul>
+            </li>
+            <li><a href="equipe.html" title="Equipe">EQUIPE</a></li>
+        </ul>
+    </header>
+    
+    <main>
+        <!-- Bandeau présentation du jeu -->
+        <section id="bandeau">
+            <h1>Le code de César</h1>
+            <article id="description">
+                <h3>Règles du jeu :</h3>
+                <p>Le texte chiffré s'obtient en remplaçant chaque lettre du texte original par la lettre qui lui correspondant dans le décalage défini en amont. <br/> 
+                    Par exemple, avec un décalage de 3 : "A" devient "D" <br>
+                    Récapitulons : <br>
+                    1) Tapez le message que vous souhaitez coder.<br>
+                    2) Puis choisissez un nombre supérieur à 0 pour déterminer le décalage souhaité. <br/>
+                    3) Validez.<br>
+                    A vous de jouer ! 
+                </p>
+            </article>
+        </section>
+
+        <!-- Jeu -->
+        <section id="jeu">
+            <h2> Chiffrez votre message </h2>
+                 <form name="formulaire">
+                    <textarea name="msg" id="msg" rows="15" placeholder="Saisir le message"></textarea> <br>
+
+                    <textarea type="number" id="decalage" rows="1" placeholder="Saisir un décalage positif" min=0 max=10></textarea>
+
+                    <input type="submit" value="Voir le résultat" name="resultat" onclick="AfficherResultat();"> <br> <br>
+        <!-- Au clic sur mon bouton, ma fonction AfficherResultat s'active (clic activé sur la balise html button) -->     
+                </form>
+        </section>
+
+         <!-- Section recommendation d'autres jeux -->
+        <section id="recommendations">
+            <article>
+                <h3>Vous aimerez aussi...</h3>
+            </article>
+            <article id="jeux_reco">
+                <div class="reco" id="reco1">
+                    <img src="Images/simon.png">
+                    <a href="simon.html"> <h4>Simon Says</h4> </a>
+                    <p>Suivez l'ordre des couleurs et à votre tour !</p>
+                </div>   
+                <div class="reco" id="reco2">
+                    <img src="Images/pixel_drawer.png">
+                    <a href="pixel.html"> <h4>Pixel Drawer</h4> </a>
+                    <p>Amusez-vous en dessinant ce que vous voulez ! </p>
+                </div>
+                <div class="reco" id="reco3">
+                    <img id="memory_img"src="Images/memory.png">
+                    <a href="memory.html"> <h4>Memory</h4> </a>
+                    <p>Trouvez les paires de cartes pour gagner !</p>
+                </div>
+            </article>
+        </section>
+
+    <!-- JavaScript -->
+    <script>
+      
+        function AfficherResultat() {
+
+        //On récupère la valeur du textarea via le formulaire (form name="formulaire" + name du texteara (=msg) .value (pour afficher sa valeur))
+            var msg = document.formulaire.msg.value;
+            var dec = document.getElementById('decalage').value;
+        /* Pour afficher sur la page au clic sur le bouton : 
+        * mon label (qui est le message crypté)
+        * le textearea contenant le résultat
+        * Un bouton pour rendre possible le retour en arrière sur cette meme page ('cesar.html')
+        */
+            document.write("<div style='background-color: #A5A0D2; margin-top:100px; width=60%; border-radius:60px; padding:50px;'><label style='display:inline-block;width: 100%;text-align : center;font-weight:bold;font-size:30px;color:white;font-family:\"Montserrat Subrayada\", sans-serif;margin-bottom:30px;margin-top : 20px;' for='msgCrypt'> Votre message chiffré </label> " + "<br> <br>" + " <textarea style='display:block;margin :auto; padding:20px; width: 50%;font-family: \"Montserrat\", sans-serif;border : 2px solid #332E59;' name='msgCrypt' id='msgCrypt' rows='15' >"+ cripterUnMessage(msg, dec) +"</textarea> " + "<button style='display : block;width: 50%;margin : auto;height:50px;border : 2px solid #332E59;border-radius: 15px;margin-top : 10px;font-family: \"Montserrat\", sans-serif;margin-top : 40px; font-weight : bold;font-size : 20px;text-transform: uppercase; font-family: \"Montserrat\", sans-serif; background-color:  white;'><a style= 'text-decoration:none; color: #332E59;' href='cesar.html'>Revenir à la page précédente</a></button></div>"
+       ); 
+        }
+
+
+
+
+        // création de la fonction césar avec laquelle nous pourrons cripter un message.
+        // cette fonction admet deux paramètres. le premiere parametre sera 
+
+        function cripterUnMessage(chaineDeCara, decalage) {
+
+            var i = 0;
+            var messageComplet = ""; //  une variable dans laquelle nous allons ajouter chaque indice de la chaine de caractère 
+             // on déclare une variable i que l'on initialise et  qui va nous servir d'incrémenteur.
+            while (i < chaineDeCara.length) { // on parcourt tous les indices disponibles dans le parametre qui represente donc une chaîne de caractère.        
+                var majuscule = chaineDeCara[i].toUpperCase(); // declaration d'une variable dans laquelle on converti le caractère de l'indice en majuscule.
+                var asciiNumstr = majuscule.charCodeAt();        
+                // ici on converti asciiNum
+                var asciiNumNum = Number.parseInt(asciiNumstr);      
+
+                if (asciiNumNum >= 65 && asciiNumNum <= 77 && decalage >= 0) {
+                    asciiNumNum = asciiNumNum + decalage % 14;    
+                    asciiNumNum = Math.round(asciiNumNum);
+                    asciiNumNum = asciiNumNum.toString();
+                    asciiNumNum = String.fromCharCode(asciiNumNum); 
+                    messageComplet += asciiNumNum;
+                
+                } else if (asciiNumNum >= 78 && asciiNumNum <= 90 && decalage >= 0) {
+                    asciiNumNum = asciiNumNum  - 13 + decalage % ( 14) + 13;    
+                    if (asciiNumNum > 90){
+                        asciiNumNum = asciiNumNum -26;
+                    }
+                    console.log(asciiNumNum);
+                    asciiNumNum = Math.round(asciiNumNum);       
+                    asciiNumNum = asciiNumNum.toString();
+                    asciiNumNum = String.fromCharCode(asciiNumNum); 
+                    messageComplet +=  asciiNumNum;
+                } 
+            /* ESSAI POUR PERMETTRE UN DECRYPTAGE AVEC UN DECALAGE NEGATIF 
+                   else if (asciiNumNum <= 90 && asciiNumNum >= 78 && decalage < 0) {
+                      //  console.log(asciiNumNum);
+                        asciiNumNum = asciiNumNum + (decalage % (-14));  
+                    //   console.log(asciiNumNum);
+                        asciiNumNum = Math.round(asciiNumNum);
+                    //    console.log(asciiNumNum);
+                        asciiNumNum = asciiNumNum.toString();
+                    //   console.log("verification du type d'asciiNumNum : ", typeof(asciiNumNum), "ici on affiche asciiNumNum : ", asciiNumNum);
+                       asciiNumNum = String.fromCharCode(asciiNumNum);  
+                  //   console.log(asciiNumNum, "ici la lettre doit etre décalée selon une clef negative pour cet interval.");           
+                    messageComplet += asciiNumNum;
+                //    console.log(messageComplet);
+                } */
+                    /*
+                    // ici c'est pas fini
+                    else if (asciiNumNum <= 77 && asciiNumNum >= 65 && decalage < 0) { 
+                    
+                     //     console.log(asciiNumNum);
+
+                     asciiNumNum = asciiNumNum + decalage % 26;   
+                  //   console.log(asciiNumNum, "test du calcul pour un decalage negatif situé dans cette fourchette.");
+                   //     asciiNumNum = Math.round(asciiNumNum);
+                        asciiNumNum = asciiNumNum.toString();
+                        asciiNumNum = String.fromCharCode(asciiNumNum);   
+                   //    console.log(asciiNumNum); 
+                       messageComplet += asciiNumNum;
+                   //  console.log(messageComplet, "test du message complet");
+                    
+                    }
+                /*   else {
+
+                     console.log(chaineDeCara);
+                   messageComplet += chaineDeCara;
+                   console.log(messageComplet);
+                   }
+                */
+                i++;       
+    
+                }
+            return messageComplet;
+        };        
+    </script>
+    </main>
+
+    <footer>
+        <span>Développé dans le cadre du cours Front End à HETIC - Copyright @2021</span>
+    </footer>
+
+</body>
+</html>

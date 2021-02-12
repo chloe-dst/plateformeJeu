@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+    <title>Simon says</title>
+    <meta charset="utf-8"/>
+    <link href="style.css" rel="stylesheet" media="all" type="text/css"> 
+    <link rel="stylesheet" href="simon.css">
+
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img id="logo" src="Time_to_play_img/logo_timetoplay_blanc.png" alt="logo">
+        </a>
+
+        <ul id="navigation">
+            <li><a href="#" title="Jeux">JEUX</a>
+                <ul class="sous_parties">
+                    <li><a href="memory.html">Memory</a></li>
+                    <li><a href="cesar.html">Code de César</a></li>
+                    <li><a href="pixel_drawer.html">Pixel Draxer</a></li>
+                    <li><a href="simon.html">Simon Says</a></li>
+                    <li><a href="counter.html">Taily Counter</a></li>
+                    <li><a href="equipe.html">Le juste prix</a></li>
+                    <li><a href="hop.html">Hop Hop!</a></li>
+                </ul>
+            </li>
+            <li><a href="equipe.html" title="Equipe">EQUIPE</a></li>
+        </ul>
+    </header>
+    
+    <main>
+        <!-- Bandeau de présentation du jeu -->
+        <section id="bandeau">
+            <h1>SIMON SAYS</h1>
+            <article id="description">
+                <h3>Règles du jeu :</h3>
+                <p>Laissez Simon composer sa mélodie et essayez à votre tour de la reproduire sans aucune fausse note.<br>
+                    Une seule erreur et vous retournerez tout au début. À vos marques près ... Composez !!
+                </p>
+            </article>
+        </section>
+
+        <!-- Jeu -->
+        <section id="jeu">
+            <div>
+        
+                <div id="simonGame">
+        
+                    <div id="start">
+                        <h2 id="startTittle">
+                            <span class="lettreS">S</span><span class="lettreI">I</span><span class="lettreM">M</span><span class="lettreO">O</span><span class="lettreN">N</span>  
+                        </h2>
+                       
+                        <p class="pclignote">cliquez pour commencer</p>
+                        
+                    </div>
+        
+                    <h2 id="smallTitle">SIMON <span id="level"></span> </h2>
+        
+                    <div id="color1"></div>
+                    <div class="colorB" id="color2"></div>
+                    <div id="color3"></div>
+                    <div id="color4"></div>
+                
+                    <p class="bravo">BRAVO !!</p>
+                    <p class="dommage">DOMMAGE ...</p>
+
+                    <button id="boutonDebut" class="valider">C'est parti</button>
+                    <button id="boutonRecommencer" class="debut">Recommencer</button>
+                   
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section de recommendations d'autres jeux -->
+        <section id="recommendations">
+            <article>
+                <h3>Vous aimerez aussi...</h3>
+            </article>
+            <article id="jeux_reco">
+                <div class="reco" id="reco1">
+                    <img id="memory_img"src="Images/memory.png">
+                    <a href="memory.html"> <h4>Memory</h4> </a>
+                    <p>Trouvez les paires de cartes pour gagner !</p>
+                </div>  
+                <div class="reco" id="reco2">
+                    <img src="Images/pixel_drawer.png">
+                    <a href="pixel.html"> <h4>Pixel Drawer</h4> </a>
+                    <p>Amusez-vous en dessinant ce que vous voulez ! </p>
+                </div>
+                <div class="reco" id="reco3">
+                    <img id="cesar" src="Images/cesar.png">
+                    <a href="cesar.html"> <h4>Code de César</h4> </a>
+                    <p>Décodez des messages comme les romains !</p>
+                </div>
+            </article>
+        </section>
+
+    </main>
+    
+    <footer>
+        <span>Développé dans le cadre du cours Front End à HETIC - Copyright @2021</span>
+    </footer>
+
+    <script type="text/javascript" src="simon.js"></script>
+<body>
+
+</body>
+</html>
